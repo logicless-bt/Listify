@@ -1,8 +1,7 @@
 
-function newItem(){
+function newItem() {
 
-//javascript
-//1. Adding a new item to the list of items: 
+/*//1. Adding a new item to the list of items USING JAVASCRIPT
    let li = document.createElement("li");
    let inputValue = document.getElementById("input").value;
    let text = document.createTextNode(inputValue);
@@ -13,6 +12,19 @@ function newItem(){
    } else {
      let list = document.querySelector('#list');
      list.appendChild(li);
+   }*/
+
+   //1 - adding a new item to the list of items WITH JQUERY
+   let listElement = $('<li></li>');
+   listElement.addClass('list-item');
+   let inputValue = $('#input').val();
+   listElement.text(inputValue);
+
+   if(inputValue === '') {
+    alert("Please write something.");
+   }else{
+    let list = $('#list');
+    list.append(listElement);
    }
 
  /*//2. Crossing out an item from the list of items:
@@ -26,13 +38,13 @@ function newItem(){
     li.addClass('strike');
   }
 
-  li.on('click', function (event) {
+  $('#list-item').on('dblclick', function (event) {
     crossOut(item);
   });
 
 
 
- //3(i). Adding the delete button "X": 
+ /*//3(i). Adding the delete button "X": 
    let crossOutButton = document.createElement("crossOutButton");
  	crossOutButton.appendChild(document.createTextNode("X"));
  	li.appendChild(crossOutButton);
@@ -41,7 +53,9 @@ function newItem(){
  //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
    function deleteListItem(){
  		li.classList.add("delete")
- 	}
+ 	}*/
+
+
  // 4. Reordering the items: 
    $('#list').sortable();
 
