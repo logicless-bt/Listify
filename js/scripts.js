@@ -15,12 +15,22 @@ function newItem(){
      list.appendChild(li);
    }
 
- //2. Crossing out an item from the list of items:
+ /*//2. Crossing out an item from the list of items:
    function crossOut() {
  		li.classList.toggle("strike");
  	}
+ 	li.addEventListener("dblclick",crossOut);*/
 
- 	li.addEventListener("dblclick",crossOut);
+  //2 - crossing out an item
+  function crossOut() {
+    li.addClass('strike');
+  }
+
+  li.on('click', function (event) {
+    crossOut(item);
+  });
+
+
 
  //3(i). Adding the delete button "X": 
    let crossOutButton = document.createElement("crossOutButton");
