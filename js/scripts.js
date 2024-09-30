@@ -19,6 +19,11 @@ function newItem() {
    listElement.addClass('list-item');
    let inputValue = $('#input').val();
    listElement.text(inputValue);
+   //3a - adding the delete button "X" WITH JQUERY
+  let crossOutButton = $('<button></button>');
+  crossOutButton.text('X');
+  crossOutButton.click(deleteListItem(listElement));
+  listElement.append(crossOutButton);
 
    if(inputValue === '') {
     alert("Please write something.");
@@ -44,7 +49,7 @@ function newItem() {
 
 
 
- /*//3(i). Adding the delete button "X": 
+ /*//3(i). Adding the delete button "X" WITH JAVASCRIPT
    let crossOutButton = document.createElement("crossOutButton");
  	crossOutButton.appendChild(document.createTextNode("X"));
  	li.appendChild(crossOutButton);
@@ -54,6 +59,13 @@ function newItem() {
    function deleteListItem(){
  		li.classList.add("delete")
  	}*/
+
+
+
+  //3b - adding CLASS DELETE from the css USING JQUERY
+  function deleteListItem() {
+    $('#list-item').addClass('delete');
+  }
 
 
  // 4. Reordering the items: 
