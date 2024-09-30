@@ -40,11 +40,11 @@ function newItem() {
 
   //2 - crossing out an item
   function crossOut() {
-    li.addClass('strike');
+    listElement.toggleClass('strike');
   }
 
-  $('#list-item').on('dblclick', function (event) {
-    crossOut(item);
+  listElement.on('dblclick', function() {
+    listElement.toggleClass('strike');
   });
 
 
