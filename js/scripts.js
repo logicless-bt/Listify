@@ -22,7 +22,7 @@ function newItem() {
    //3a - adding the delete button "X" WITH JQUERY
   let crossOutButton = $('<button></button>');
   crossOutButton.text('X');
-  crossOutButton.click(deleteListItem(listElement));
+  crossOutButton.click(deleteListItem);
   listElement.append(crossOutButton);
 
    if(inputValue === '') {
@@ -32,39 +32,19 @@ function newItem() {
     list.append(listElement);
    }
 
- /*//2. Crossing out an item from the list of items:
-   function crossOut() {
- 		li.classList.toggle("strike");
- 	}
- 	li.addEventListener("dblclick",crossOut);*/
-
   //2 - crossing out an item
   function crossOut() {
     listElement.toggleClass('strike');
   }
 
-  listElement.on('dblclick', function() {
+  listElement.dblclick(function() {
     listElement.toggleClass('strike');
   });
 
 
-
- /*//3(i). Adding the delete button "X" WITH JAVASCRIPT
-   let crossOutButton = document.createElement("crossOutButton");
- 	crossOutButton.appendChild(document.createTextNode("X"));
- 	li.appendChild(crossOutButton);
-
- 	crossOutButton.addEventListener("click", deleteListItem);
- //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
-   function deleteListItem(){
- 		li.classList.add("delete")
- 	}*/
-
-
-
   //3b - adding CLASS DELETE from the css USING JQUERY
   function deleteListItem() {
-    $('#list-item').addClass('delete');
+    listElement.addClass('delete');
   }
 
 
