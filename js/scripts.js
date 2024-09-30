@@ -1,18 +1,18 @@
 
-function newItem() {
+let listApp = (function () {
+  function newItem() {
+  /*//1. Adding a new item to the list of items USING JAVASCRIPT
+     let li = document.createElement("li");
+     let inputValue = document.getElementById("input").value;
+     let text = document.createTextNode(inputValue);
+     li.appendChild(text);
 
-/*//1. Adding a new item to the list of items USING JAVASCRIPT
-   let li = document.createElement("li");
-   let inputValue = document.getElementById("input").value;
-   let text = document.createTextNode(inputValue);
-   li.appendChild(text);
-
-   if (inputValue === '') {
-     alert("You must write something!");
-   } else {
-     let list = document.querySelector('#list');
-     list.appendChild(li);
-   }*/
+     if (inputValue === '') {
+       alert("You must write something!");
+     } else {
+       let list = document.querySelector('#list');
+       list.appendChild(li);
+     }*/
 
    //1 - adding a new item to the list of items WITH JQUERY
    let listElement = $('<li></li>');
@@ -25,27 +25,41 @@ function newItem() {
   crossOutButton.click(deleteListItem(listElement));
   listElement.append(crossOutButton);
 
+  listElement.dblclick(function (event) {
+    crossOut();
+  });
+
    if(inputValue === '') {
     alert("Please write something.");
    }else{
     let list = $('#list');
     list.append(listElement);
    }
+  }
 
+  //2 - crossing out an item
+  function crossOut() {
+    li.addClass('strike');
+  }
+  $('#list-item').on('dblclick', function (event) {
+    crossOut(item);
+  });
+
+  return {
+    newItem: newItem,
+    crossOut: crossOut
+  };
+
+})();
  /*//2. Crossing out an item from the list of items:
    function crossOut() {
  		li.classList.toggle("strike");
  	}
  	li.addEventListener("dblclick",crossOut);*/
 
-  //2 - crossing out an item
-  function crossOut() {
-    li.addClass('strike');
-  }
+  
 
-  $('#list-item').on('dblclick', function (event) {
-    crossOut(item);
-  });
+  
 
 
 
